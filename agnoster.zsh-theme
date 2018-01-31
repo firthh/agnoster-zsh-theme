@@ -136,7 +136,7 @@ prompt_nix_shell() {
   if [[ -n $NIX_PROMPT ]]; then
        color=red
        prompt_segment $color $PRIMARY_FG
-       print -Pn "Nix Shell $SEGMENT_SEPARATOR"
+       print -Pn "Nix Shell"
   fi
 }
 
