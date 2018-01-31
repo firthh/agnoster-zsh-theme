@@ -136,7 +136,7 @@ prompt_nix_shell() {
   if [[ -n $NIX_PROMPT ]]; then
        color=red
        prompt_segment $color $PRIMARY_FG
-       print -Pn "\u2277Nix Shell "
+       print -Pn " \u2277 NS "
   fi
 }
 
