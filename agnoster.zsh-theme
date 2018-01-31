@@ -131,18 +131,7 @@ prompt_virtualenv() {
   fi
 }
 
-## Main prompt
-prompt_agnoster_main() {
-  RETVAL=$?
-  CURRENT_BG='NONE'
-  prompt_status
-  prompt_context
-  prompt_virtualenv
-  prompt_dir
-  prompt_git
-  prompt_end
-}
-
+# Display if currently inside nix-shell
 prompt_nix_shell() {
   if [[ -n $NIX_PROMPT ]]; then
        color=red
@@ -151,9 +140,23 @@ prompt_nix_shell() {
   fi
 }
 
+
+## Main prompt
+prompt_agnoster_main() {
+  RETVAL=$?
+  CURRENT_BG='NONE'
+  prompt_status
+  prompt_context
+  prompt_virtualenv
+  prompt_nix_shell
+  prompt_dir
+  prompt_git
+  prompt_end
+}
+
 prompt_agnoster_precmd() {
   vcs_info
-  PROMPT='$(prompt_nix_shell)%{%f%b%k%}$(prompt_agnoster_main) '
+  PROMPT='%{%f%b%k%}$(prompt_agnoster_main) '
 }
 
 prompt_agnoster_setup() {
