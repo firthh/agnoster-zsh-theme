@@ -143,9 +143,17 @@ prompt_agnoster_main() {
   prompt_end
 }
 
+prompt_nix_shell() {
+  if [[ -n $NIX_PROMPT ]]; then
+       color=red
+       prompt_segment $color $PRIMARY_FG
+       print -Pn "Nix Shell"
+  fi
+}
+
 prompt_agnoster_precmd() {
   vcs_info
-  PROMPT='%{%f%b%k%}$(prompt_agnoster_main) '
+  PROMPT='$(prompt_nix_shell)%{%f%b%k%}$(prompt_agnoster_main) '
 }
 
 prompt_agnoster_setup() {
