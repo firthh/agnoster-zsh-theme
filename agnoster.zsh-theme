@@ -133,7 +133,7 @@ prompt_virtualenv() {
 
 # Display if currently inside nix-shell
 prompt_nix_shell() {
-  if [[ -n $NIX_PROMPT ]]; then
+  if [[ -n $IN_NIX_SHELL ]]; then
        color=red
        prompt_segment $color $PRIMARY_FG
        print -Pn " \u2277 NS "
